@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIFTYFIVE QATAR — Hero concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-950: #060f1d;
+    --navy-900: #0a1a30;
+    --navy-800: #11264a;
+    --gold: #c9a45c;
+    --gold-soft: #e4cf9f;
+    --white: #f7f5f0;
+    --muted: #9fb0c8;
+    --line: rgba(201, 164, 92, .28);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--navy-950); color: var(--white); font-family: Manrope, system-ui, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+
+  .hero {
+    position: relative; min-height: 100svh; overflow: hidden; display: flex; flex-direction: column;
+    background:
+      radial-gradient(1200px 600px at 78% 8%, rgba(201,164,92,.16), transparent 60%),
+      radial-gradient(900px 700px at 10% 110%, rgba(17,38,74,.9), transparent 70%),
+      linear-gradient(180deg, var(--navy-900), var(--navy-950));
+  }
+  .grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: calc(100% / 6) 100%;
+  }
+
+  /* Header */
+  header { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between;
+           padding: 28px clamp(16px, 5vw, 72px); }
+  .logo { display: flex; align-items: center; gap: 12px; letter-spacing: .22em; font-weight: 600; font-size: 13px; }
+  .logo-mark { width: 40px; height: 40px; border: 1px solid var(--gold); display: grid; place-items: center;
+               font-family: "Cormorant Garamond", serif; font-size: 20px; color: var(--gold); letter-spacing: 0; }
+  .logo small { display: block; color: var(--gold); letter-spacing: .32em; font-size: 10px; font-weight: 500; margin-top: 3px; }
+  nav { display: flex; gap: 36px; font-size: 14px; color: var(--muted); }
+  nav a:hover { color: var(--white); }
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 26px; font-size: 14px; font-weight: 600;
+         letter-spacing: .04em; transition: background .3s, color .3s, border-color .3s; }
+  .btn-gold { background: var(--gold); color: var(--navy-950); }
+  .btn-gold:hover { background: var(--gold-soft); }
+  .btn-ghost { border: 1px solid rgba(247,245,240,.25); }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .menu { display: none; width: 40px; height: 40px; border: 1px solid rgba(247,245,240,.25); background: none; color: var(--white); }
+
+  /* Content */
+  .content { position: relative; z-index: 2; flex: 1; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center;
+             gap: 40px; padding: 4vh clamp(16px, 5vw, 72px) 0; }
+  .eyebrow { display: flex; align-items: center; gap: 14px; color: var(--gold); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 44px; height: 1px; background: var(--gold); }
+  h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(44px, 6.4vw, 96px); line-height: .98;
+       letter-spacing: -.01em; margin: 26px 0 28px; }
+  h1 em { font-style: italic; color: var(--gold-soft); }
+  .lead { max-width: 520px; color: var(--muted); font-size: clamp(15px, 1.2vw, 17px); line-height: 1.7; }
+  .lead strong { color: var(--white); font-weight: 500; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+
+  .skyline { width: 100%; height: auto; align-self: end; }
+  .skyline path, .skyline line { stroke: var(--gold); fill: none; stroke-width: 1.2;
+                                 stroke-dasharray: 1600; stroke-dashoffset: 1600; animation: draw 3.2s ease-out .4s forwards; }
+  .skyline .fill { fill: url(#tower); stroke: none; animation: none; opacity: .9; }
+  .skyline .sea { stroke: var(--line); }
+
+  /* Stats + directions */
+  .base { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, auto) 1fr; gap: 0;
+          border-top: 1px solid var(--line); margin: 6vh clamp(16px, 5vw, 72px) 0; }
+  .stat { padding: 26px 48px 30px 0; margin-right: 48px; border-right: 1px solid var(--line); }
+  .stat b { display: block; font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: 44px; color: var(--gold); line-height: 1; }
+  .stat span { display: block; margin-top: 8px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .directions { align-self: center; justify-self: end; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px 22px;
+                font-size: 13px; color: var(--muted); max-width: 460px; }
+  .directions li { list-style: none; display: flex; align-items: center; gap: 10px; }
+  .directions li::before { content: ""; width: 5px; height: 5px; transform: rotate(45deg); background: var(--gold); }
+
+  .reveal { opacity: 0; transform: translateY(18px); animation: up .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  .d1 { animation-delay: .1s } .d2 { animation-delay: .25s } .d3 { animation-delay: .4s } .d4 { animation-delay: .6s } .d5 { animation-delay: .8s }
+  @keyframes up { to { opacity: 1; transform: none; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .skyline path, .skyline line { animation: none; opacity: 1; transform: none; stroke-dashoffset: 0; }
+  }
+
+  @media (max-width: 960px) {
+    nav, header .btn { display: none; }
+    .menu { display: grid; place-items: center; }
+    .content { grid-template-columns: 1fr; padding-top: 2vh; }
+    .skyline { order: -1; max-height: 220px; }
+    .base { grid-template-columns: repeat(3, 1fr); }
+    .stat { padding: 20px 12px 22px 0; margin-right: 12px; }
+    .stat:nth-child(3) { border-right: 0; }
+    .stat b { font-size: 32px; }
+    .stat span { font-size: 10px; letter-spacing: .08em; }
+    .directions { grid-column: 1 / -1; justify-self: start; justify-content: flex-start; padding: 6px 0 32px; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="grid-lines"></div>
+
+  <header>
+    <a class="logo" href="#">
+      <span class="logo-mark">55</span>
+      <span>FIFTYFIVE<small>QATAR</small></span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#business">Business</a>
+      <a href="#qatar">Qatar</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold" href="#contact">Contact Us</a>
+    <button class="menu" aria-label="Menu">&#9776;</button>
+  </header>
+
+  <div class="content">
+    <div>
+      <p class="eyebrow reveal d1">FIFTYFIVE GROUP · State of Qatar</p>
+      <h1 class="reveal d2">Creating and managing <em>business</em> across borders.</h1>
+      <p class="lead reveal d3">
+        <strong>FIFTYFIVE QATAR</strong> represents FIFTYFIVE GROUP — an investment and management company
+        founded in 2015 — in Qatar, connecting the Group's experience in finance, food, sport and technology
+        with partners in the Gulf.
+      </p>
+      <div class="actions reveal d4">
+        <a class="btn btn-gold" href="#contact">Contact Us &rarr;</a>
+        <a class="btn btn-ghost" href="#business">Our Business</a>
+      </div>
+    </div>
+
+    <!-- Stylised West Bay skyline; replaced by a licensed photo in production -->
+    <svg class="skyline reveal d3" viewBox="0 0 560 420" aria-hidden="true">
+      <defs>
+        <linearGradient id="tower" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#c9a45c" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#c9a45c" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="fill" d="M250 360 L250 120 Q262 60 274 120 L274 360 Z"/>
+      <path d="M250 360 L250 120 Q262 60 274 120 L274 360"/>
+      <line x1="262" y1="88" x2="262" y2="40"/>
+      <path d="M300 360 L300 170 L318 150 L336 170 L336 360"/>
+      <path d="M200 360 L200 190 Q214 150 228 190 L228 360"/>
+      <path d="M350 360 L350 210 L390 210 L390 360"/>
+      <path d="M150 360 L150 240 L184 225 L184 360"/>
+      <path d="M404 360 L404 150 C404 120 436 120 436 150 L436 360"/>
+      <path d="M450 360 L450 260 L486 260 L486 360"/>
+      <path d="M100 360 L100 280 L130 280 L130 360"/>
+      <path d="M60 360 L60 300 L86 290 L86 360"/>
+      <path d="M498 360 L498 300 L530 300 L530 360"/>
+      <line x1="20" y1="360" x2="540" y2="360"/>
+      <line class="sea" x1="60" y1="378" x2="500" y2="378"/>
+      <line class="sea" x1="120" y1="394" x2="440" y2="394"/>
+      <line class="sea" x1="190" y1="408" x2="370" y2="408"/>
+    </svg>
+  </div>
+
+  <div class="base reveal d5">
+    <div class="stat"><b>2015</b><span>Founded</span></div>
+    <div class="stat"><b>10</b><span>Years of work</span></div>
+    <div class="stat"><b>8</b><span>Countries</span></div>
+    <ul class="directions">
+      <li>Finance</li><li>Food</li><li>Clothing</li><li>Aviation &amp; Tourism</li><li>Sport</li><li>Startups</li>
+    </ul>
+  </div>
+</section>
+</body>
+</html>
