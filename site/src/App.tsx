@@ -57,7 +57,7 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative flex min-h-svh flex-col items-center overflow-hidden bg-navy-950 px-4 pt-[22svh] pb-16 text-center">
+    <section id="top" className="relative flex min-h-svh flex-col items-center justify-end overflow-hidden bg-navy-950 px-4 pt-28 pb-[6svh] text-center sm:justify-start sm:pt-[22svh] sm:pb-16">
       {/* Doha West Bay at night — Jimmy Hu, Unsplash License (unsplash.com/photos/LIuY3-Mwc_k). */}
       <img src="/doha.jpg" alt="" className="absolute inset-0 size-full object-cover object-[50%_65%]" />
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-navy-950/35 to-navy-950" />
