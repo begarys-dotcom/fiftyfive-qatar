@@ -291,8 +291,9 @@ function Contact() {
     setStatus('sending')
     try {
       const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
-      setStatus(res.ok ? 'sent' : 'error')
-      if (res.ok) form.reset()
+      const ok = res.ok && (await res.json()).success === true
+      setStatus(ok ? 'sent' : 'error')
+      if (ok) form.reset()
     } catch {
       setStatus('error')
     }
