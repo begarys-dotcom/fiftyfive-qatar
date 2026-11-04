@@ -1,7 +1,7 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { ArrowRight, Mail } from 'lucide-react'
 
-const emails = ['Aziz@ffg.qa', 'Begarys@ffg.qa', 'Info@ffg.qa']
+const emails = ['Info@ffg.qa']
 
 export default function App() {
   useEffect(() => {
@@ -57,53 +57,14 @@ function Header() {
 
 function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center"
-      style={{
-        background:
-          'radial-gradient(1200px 600px at 50% 0%, rgb(201 164 92 / .16), transparent 60%), radial-gradient(900px 700px at 10% 110%, rgb(17 38 74 / .9), transparent 70%), linear-gradient(180deg, #0a1a30, #060f1d)',
-      }}
-    >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ backgroundImage: 'linear-gradient(to right, rgb(255 255 255 / .035) 1px, transparent 1px)', backgroundSize: 'calc(100% / 6) 100%' }}
-      />
-      <Skyline />
-      <p className="eyebrow reveal relative mt-10 justify-center">State of Qatar</p>
+    <section id="top" className="relative flex min-h-svh flex-col items-center overflow-hidden bg-navy-950 px-4 pt-[22svh] pb-16 text-center">
+      {/* Doha West Bay at night — Jimmy Hu, Unsplash License (unsplash.com/photos/LIuY3-Mwc_k). */}
+      <img src="/doha.jpg" alt="" className="absolute inset-0 size-full object-cover object-[50%_65%]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-navy-950/35 to-navy-950" />
+      <p className="eyebrow reveal relative justify-center">State of Qatar</p>
       <h1 className="reveal relative mt-5 font-display text-[clamp(44px,7vw,104px)] font-medium leading-none">FIFTYFIVE QATAR</h1>
       <a href="#contact" className="btn btn-gold reveal relative mt-10">Contact Us <ArrowRight size={16} /></a>
     </section>
-  )
-}
-
-// Stylised West Bay skyline; swap for a licensed Doha photo when the client provides one.
-function Skyline() {
-  return (
-    <svg className="skyline relative max-h-[46svh] w-full max-w-3xl" viewBox="0 0 560 420" aria-hidden="true">
-      <defs>
-        <linearGradient id="tower" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#c9a45c" stopOpacity=".22" />
-          <stop offset="1" stopColor="#c9a45c" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <path className="fill" d="M250 360 L250 120 Q262 60 274 120 L274 360 Z" />
-      <path d="M250 360 L250 120 Q262 60 274 120 L274 360" />
-      <line x1="262" y1="88" x2="262" y2="40" />
-      <path d="M300 360 L300 170 L318 150 L336 170 L336 360" />
-      <path d="M200 360 L200 190 Q214 150 228 190 L228 360" />
-      <path d="M350 360 L350 210 L390 210 L390 360" />
-      <path d="M150 360 L150 240 L184 225 L184 360" />
-      <path d="M404 360 L404 150 C404 120 436 120 436 150 L436 360" />
-      <path d="M450 360 L450 260 L486 260 L486 360" />
-      <path d="M100 360 L100 280 L130 280 L130 360" />
-      <path d="M60 360 L60 300 L86 290 L86 360" />
-      <path d="M498 360 L498 300 L530 300 L530 360" />
-      <line x1="20" y1="360" x2="540" y2="360" />
-      <line className="sea" x1="60" y1="378" x2="500" y2="378" />
-      <line className="sea" x1="120" y1="394" x2="440" y2="394" />
-      <line className="sea" x1="190" y1="408" x2="370" y2="408" />
-    </svg>
   )
 }
 
