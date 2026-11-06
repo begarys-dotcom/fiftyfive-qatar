@@ -27,12 +27,9 @@ export default function App() {
 
 function Logo() {
   return (
-    <a href="#top" className="flex items-center gap-3 text-[13px] font-semibold tracking-[0.22em]">
-      <span className="grid size-10 place-items-center border border-gold font-display text-xl tracking-normal text-gold">55</span>
-      <span>
-        FIFTYFIVE
-        <small className="mt-0.5 block text-[10px] font-medium tracking-[0.32em] text-gold">QATAR</small>
-      </span>
+    <a href="#top">
+      {/* 135×42 PNG from ffg.tj; replace with the SVG when the client sends it. */}
+      <img src="/logo.png" width={135} height={42} alt="FIFTYFIVE GROUP" />
     </a>
   )
 }
