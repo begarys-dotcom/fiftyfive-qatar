@@ -38,7 +38,7 @@ function Header() {
       <div className="container-x flex items-center justify-between py-4">
         <Logo />
         <nav className="flex items-center gap-5 sm:gap-8">
-          <a href="#about" className="link text-sm">About Us</a>
+          <a href="#about" className="link text-sm max-sm:hidden">About Us</a>
           <a href="#contact" className="btn btn-ghost max-sm:px-4 max-sm:py-2.5">Contact Us</a>
         </nav>
       </div>
