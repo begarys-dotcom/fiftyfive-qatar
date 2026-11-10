@@ -53,8 +53,8 @@ function Hero() {
       <img src="/doha.jpg" alt="" className="absolute inset-0 size-full object-cover object-[50%_65%]" />
       {/* Darkens the photo so the heading stays readable and the bottom blends into the page. */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950/85 via-navy-950/35 to-navy-950" />
-      <h1 className="heading relative text-[clamp(44px,7vw,104px)] leading-none">FIFTYFIVE QATAR</h1>
-      <p className="relative mt-5 text-lg text-muted">The Qatar office of FIFTYFIVE GROUP</p>
+      <h1 className="heading relative text-[clamp(44px,7vw,104px)] leading-none">FIFTYFIVE GROUP</h1>
+      <p className="relative mt-5 text-lg text-muted">Qatar office</p>
       <a href="#contact" className="btn btn-gold relative mt-10">Contact Us <ArrowRight size={16} /></a>
     </section>
   )
@@ -71,7 +71,7 @@ function About() {
             For ten years FIFTYFIVE GROUP has been creating and managing businesses in Tajikistan, Uzbekistan, Kazakhstan,
             Russia, China and the United Arab Emirates.
           </p>
-          <p>FIFTYFIVE QATAR represents the Group in the State of Qatar.</p>
+          <p>In the State of Qatar the Group is represented by its Qatar office.</p>
           <a href="https://ffg.tj/" target="_blank" rel="noopener" className="btn mt-4 bg-navy-950 text-paper hover:bg-navy-800">
             Visit ffg.tj <ArrowUpRight size={16} />
           </a>
@@ -116,7 +116,7 @@ function Contact() {
       <div className="container-x section grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <h2 className="heading text-[clamp(34px,4.4vw,60px)] leading-[1.05]">
-            Contact <span className="whitespace-nowrap">FIFTYFIVE QATAR</span>
+            Contact <span className="whitespace-nowrap">FIFTYFIVE GROUP</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
             Write to{' '}
@@ -165,7 +165,7 @@ function Footer() {
         <Logo />
         <a href="mailto:info@ffg.qa" className="link">info@ffg.qa</a>
         <a href="https://ffg.tj/" target="_blank" rel="noopener" className="link">Main website: ffg.tj</a>
-        <p>© {new Date().getFullYear()} FIFTYFIVE QATAR</p>
+        <p>© {new Date().getFullYear()} FIFTYFIVE GROUP</p>
       </div>
     </footer>
   )
